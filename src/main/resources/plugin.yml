@@ -1,0 +1,10 @@
+name: ChatTranslate
+main: cn.lanink.chattranslate.ChatTranslate
+version: "0.0.1-SNAPSHOT"
+api:
+  - "1.0.9"
+  - "1.0.11"
+author: "LT_Name"
+load: POSTWORLD
+depend:
+  - "MemoriesOfTime-GameCore"
