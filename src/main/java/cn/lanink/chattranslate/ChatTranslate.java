@@ -65,9 +65,12 @@ public class ChatTranslate extends PluginBase implements Listener {
                             continue;
                         }
                         sender.sendMessage(cache.computeIfAbsent(targetLanguage,
-                                s -> autoChatTranslateFormat
-                                        .replace("{player}", player.getName())
-                                        .replace("{message}", TranslateAPI.getInstance().translate("auto", targetLanguage, message))
+                                s -> {
+                                    String source = TranslateAPI.getInstance().getTranslateProvider().isSupportAuto() ? "auto" : sourceLanguage;
+                                    return autoChatTranslateFormat
+                                            .replace("{player}", player.getName())
+                                            .replace("{message}", TranslateAPI.getInstance().translate(source, targetLanguage, message));
+                                }
                         ));
                     }
                 }
